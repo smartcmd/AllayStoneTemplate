@@ -62,9 +62,7 @@ For `./gradlew runServer`, the managed prefix is usually `build/run/plugins/.loc
 Stop the server first, then uninstall the distribution from the same prefix:
 
 ```powershell
-$env:PYTHONPATH = "<server>/plugins/.local/Lib/site-packages"
-python -m pip uninstall allaystone-<your-plugin-name>
-Remove-Item Env:PYTHONPATH
+& { $env:PYTHONPATH = "<server>/plugins/.local/Lib/site-packages"; try { python -m pip uninstall allaystone-<your-plugin-name> } finally { Remove-Item Env:PYTHONPATH -ErrorAction SilentlyContinue } }
 ```
 
 ## Plugin Layout
