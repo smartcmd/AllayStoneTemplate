@@ -40,6 +40,15 @@ python -m pip wheel . --no-deps --wheel-dir dist
 
 Copy the generated wheel from `dist/` into your server's `plugins/` directory.
 
+## GitHub Actions
+
+This template includes [`.github/workflows/build.yml`](.github/workflows/build.yml).
+
+- pushes to `main`, pull requests, and manual runs build a wheel and upload it as a workflow artifact
+- published GitHub releases also attach the built wheel to the release assets
+
+If you want a downloadable wheel for each version, create a tag and publish a GitHub release from that tag.
+
 ## Install Editable
 
 ```powershell
